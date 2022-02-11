@@ -27,7 +27,10 @@ snacks.get("/:id", async (req,res) => {
                 payload: snack
             })
         }else{
-            res.status(500).json({error: "Snack not found"})
+            res.status(404).json({
+                success: false,
+                payload: "not found"
+            })
         }
     } catch (error) {
         console.log(error)
@@ -62,7 +65,10 @@ snacks.delete("/:id", async (req,res) =>{
                 payload: deletedSnack
             })
         } else {
-            res.status(404).json({error: "Snack not found"})
+            res.status(404).json({
+                success:false,
+                payload: "not found"
+            })
         }
     } catch (error) {
         console.log(error)
