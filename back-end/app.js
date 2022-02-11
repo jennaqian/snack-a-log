@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const cors = require("cors")
+const snackController = require("./controllers/snackController.js")
 
 // CONFIGURATION
 const app = express();
@@ -14,6 +15,8 @@ require("dotenv").config()
 app.get("/", (req, res)=> {
     res.send("Welcome to Snack World!")
 })
+
+app.use("/snacks", snackController)
 
 //404 PAGE
 app.get("*", (req, res)=> {
