@@ -1,8 +1,15 @@
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Home from "./Components/Home.js"
+import Navbar from "./Components/Navbar.js"
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, world!</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
+    </Router>
   );
 }
 
