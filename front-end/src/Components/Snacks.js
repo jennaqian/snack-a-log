@@ -1,7 +1,6 @@
 import Snack from "./Snack.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import HeartHealth from "./HeartHealth.js";
 
 const API = process.env.REACT_APP_API_URL;
 // console.log(API)
@@ -18,9 +17,7 @@ export default function Snacks() {
   }, []);
   return (
     <ul>
-       {snacks.map(snack => {
-                return <HeartHealth key={snack.id} snackHealth={snack.is_healthy}/>
-            })}
+        
       {/* {snacks.map(snack => {
                 return <Snack key={snack.id} snack={snack}/>
             })} */}
