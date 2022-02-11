@@ -17,10 +17,9 @@ export default function Snacks() {
   }, []);
   return (
     <ul>
-        
-      {/* {snacks.map(snack => {
-                return <Snack key={snack.id} snack={snack}/>
-            })} */}
+        {snacks.map(snack => {
+            return <Snack key={snack.id} snack={snack}/>
+        })}
     </ul>
   );
 }

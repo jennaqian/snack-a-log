@@ -1,12 +1,11 @@
 import HeartHealth from "./HeartHealth.js";
-import SnackDetails from "./SnackDetails.js"
 
 export default function Snack ({snack}){
     return(
         <div>
-            <img />
+            <img src={snack.image}/>
             <HeartHealth />
-            <h5>Snack Name...</h5>
+            <h5>{snack.name}</h5>
         </div>
     )
 }
