@@ -13,7 +13,7 @@ require("dotenv").config()
 
 // ROUTES
 app.get("/", (req, res)=> {
-    res.send("Welcome to Snack World!")
+    res.send("Get Snack'n at Snack-a-log!")
 })
 
 app.use("/snacks", snackController)

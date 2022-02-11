@@ -1,0 +1,7 @@
+.navbar-logo{
+    width: 150px;
+}
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
