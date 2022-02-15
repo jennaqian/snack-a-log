@@ -5,7 +5,7 @@ h1 {
     font-family: 'Carter One';
 }
 main {
-    width: 90px;
+    width: 90%;
     margin: 0 auto;
 }
 nav {
@@ -15,6 +15,7 @@ nav {
     padding: 15px 45px;
     align-items: center;
     margin-bottom: 15px;
+    flex-direction: column;
 }
 a {
     text-decoration: none;
@@ -30,7 +31,7 @@ article {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em;
-    width: 150px;
+    align-content: space-between;
 }
 
 .Snack{
@@ -42,5 +43,6 @@ article {
     width: 150px;
 }
 .navbar-logo {
-    width: 100px;
+    width: 80px;
+    padding: 0px;
 }
