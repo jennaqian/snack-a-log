@@ -1,6 +1,8 @@
 const express = require("express")
-const snacks = express.Router()
-const {getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack} = require("../queries/snacks.js")
+const snacks = express.Router();
+const { confirmHealth } = require("../confirmHealth.js");
+const {getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack} = require("../queries/snacks.js");
+const {checkName} = require("../checkName.js");
 
 snacks.get("/", async (req,res) => {
     try {
@@ -38,8 +40,9 @@ snacks.get("/:id", async (req,res) => {
 })
 
 
-snacks.post("/", async (req,res)=> {
+snacks.post("/", checkName, async (req,res)=> {
     const {body}= req
+    body.is_healthy = confirmHealth(body);
     try {
         const createdSnack = await createSnack(body)
         if(createdSnack.id){
