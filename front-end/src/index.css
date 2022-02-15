@@ -38,10 +38,17 @@ article {
     padding: 1em;
     width: 150px;
     background-color: rgb(255, 252, 242);
+    box-shadow: inset 5em 1em gold;
 }
 .Snacks img{
     width: 150px;
 }
+
+.hearts img{
+    width: 20px;
+    font-size: xx-large;
+}
+
 .navbar-logo {
     width: 80px;
     padding: 0px;
