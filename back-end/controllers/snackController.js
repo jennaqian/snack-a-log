@@ -1,8 +1,8 @@
 const express = require("express")
-const snacks = express.Router();
-const { confirmHealth } = require("../confirmHealth.js");
-const {getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack} = require("../queries/snacks.js");
-const {checkName} = require("../checkName.js");
+const snacks = express.Router()
+const {getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack} = require("../queries/snacks.js")
+const confirmHealth = require("../confirmHealth.js")
+const {capitalizationCheck, checkName} = require("../validation.js")
 
 snacks.get("/", async (req,res) => {
     try {
@@ -12,7 +12,10 @@ snacks.get("/", async (req,res) => {
                 success: true,
                 payload: allSnacks})
         } else {
-            res.status(500).json({error:"Server error"})
+            res.status(404).json({
+                success: false,
+                payload:"Server error"
+            })
         }
     } catch (error) {
         console.log(error)
@@ -41,9 +44,14 @@ snacks.get("/:id", async (req,res) => {
 
 
 snacks.post("/", checkName, async (req,res)=> {
-    const {body}= req
-    body.is_healthy = confirmHealth(body);
+    let {body}= req
+    body.is_healthy = confirmHealth(body)
     try {
+        if(!body.image){
+            body.image = "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image"
+        }
+        // body.name = capitalizationCheck(body.name)
+        body = {...body, name: capitalizationCheck(body.name)}
         const createdSnack = await createSnack(body)
         if(createdSnack.id){
             res.status(200).json({
@@ -51,7 +59,10 @@ snacks.post("/", checkName, async (req,res)=> {
                 payload: createdSnack
             })
         }else{
-            res.status(500).json({error: "Snack creation error"})
+            res.status(404).json({
+                success:false,
+                payload: "Snack creation error"
+            })
         }
     } catch (error) {
         console.log(error)
@@ -89,7 +100,10 @@ snacks.put("/:id", async (req,res)=>{
                 payload: updatedSnack
             })
         } else {
-            res.status(404).json({error: "Snack not found"})
+            res.status(404).json({
+                success: false,
+                payload: "Snack not found"
+            })
         }
     } catch (error) {
         
