@@ -4,6 +4,12 @@ body {
 h1 {
     font-family: 'Carter One';
 }
+
+.homePage {
+    padding-top: 50px;
+    text-align: center;
+}
+
 main {
     width: 90%;
     margin: 0 auto;
@@ -16,6 +22,7 @@ nav {
     align-items: center;
     margin-bottom: 15px;
     flex-direction: column;
+    border-radius: 2em;
 }
 a {
     text-decoration: none;

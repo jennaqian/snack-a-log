@@ -47,6 +47,8 @@ export default function NewSnack () {
             <label htmlFor="added_sugar">Added Sugar: </label>
             <input type="number" id="added_sugar" value={snack.added_sugar} onChange={handleTextChange} placeholder="Enter added sugar"/>
 
+            <br />
+            <br />
             <input type="submit" />
         </form>
     )
